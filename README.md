@@ -146,7 +146,7 @@ The `io.lxmf.rns` layer is a thin interface contract. `ReticulumProvider` is the
 
 ## Related projects
 
-- [Reticulum](https://reticulum.network) — the underlying network stack
+- [Reticulum](https://reticulum.network) — the underlying network stack, [Reticulum Manual](https://reticulum.network/manual/index.html)
 - [reticulum-network-stack](https://github.com/jschulthess/reticulum-network-stack) — native Java Reticulum implementation
 - [LXMF (Python reference)](https://github.com/markqvist/LXMF) — the reference implementation this library is translated from
-- [Sideband](https://github.com/markqvist/Sideband) — Python LXMF client application
+- [Sideband](https://github.com/markqvist/Sideband) — Python LXMF client application, [Reticulum Manual Reference](https://reticulum.network/manual/software.html#sideband)

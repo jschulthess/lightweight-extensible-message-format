@@ -144,6 +144,10 @@ The `io.lxmf.rns` layer is a thin interface contract. `ReticulumProvider` is the
 | `ACTIVE`, `STALE` | `RNSLink.ACTIVE` |
 | `CLOSED` | `RNSLink.CLOSED` |
 
+## Example Application
+
+This project comes with a sample application, a Java port of the Python `lxmd` utility. For details on using the java version see the [documentation](./docs/running-lxmd.md).
+
 ## Related projects
 
 - [Reticulum](https://reticulum.network) — the underlying network stack, [Reticulum Manual](https://reticulum.network/manual/index.html)

@@ -159,6 +159,8 @@ All runtime state is stored under the config directory:
 
 ## Running as a systemd service
 
+### System-wide Service
+
 Create `/etc/systemd/system/lxmd.service`:
 
 ```ini
@@ -181,6 +183,41 @@ Then:
 sudo systemctl daemon-reload
 sudo systemctl enable --now lxmd
 sudo journalctl -u lxmd -f
+```
+
+Copy the fat JAR to `/opt/lxmd/lxmd.jar` and create `/etc/lxmd/config.properties`
+(use `--exampleconfig` to generate a starting point).
+
+### Userspace Service
+
+Create `$HOME/.config/systemd/user/lxmd.service`:
+
+```ini
+[Unit]
+Description=LXMF Message Daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/java -jar /opt/lxmd/lxmd.jar --config /etc/lxmd --service
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then:
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enale --now lxmd.service
+```
+
+If you want to automatically start lxmd without having to log in as USERNAMEHERE, do:
+
+``` bash
+sudo loginctl enable-linger USERNAMEHERE
+systemctl --user enable lxmd.service
 ```
 
 Copy the fat JAR to `/opt/lxmd/lxmd.jar` and create `/etc/lxmd/config.properties`
